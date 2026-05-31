@@ -32,8 +32,9 @@ use editor_tiny\plugin_with_menuitems;
  * Registers the toolbar button and Insert-menu item for footnotes.
  */
 class plugininfo extends plugin implements plugin_with_buttons, plugin_with_menuitems {
-
     /**
+     * Returns the toolbar button identifiers contributed by this plugin.
+     *
      * @return string[] Button identifiers in <frankenstyle>/<name> form.
      */
     public static function get_available_buttons(): array {
@@ -43,6 +44,8 @@ class plugininfo extends plugin implements plugin_with_buttons, plugin_with_menu
     }
 
     /**
+     * Returns the menu item identifiers contributed by this plugin.
+     *
      * @return string[] Menu item identifiers in <frankenstyle>/<name> form.
      */
     public static function get_available_menuitems(): array {

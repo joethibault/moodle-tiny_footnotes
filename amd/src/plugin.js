@@ -28,11 +28,15 @@ import {component, pluginName} from './common';
 import {getSetup as getCommandSetup} from './commands';
 import * as Configuration from './configuration';
 
-// PluginManager.add doesn't accept async setup, so we resolve a Promise of the
-// [pluginName, configureHandler] tuple only once TinyMCE itself and our async
-// setup work have settled. The second element is what Moodle's tiny loader
-// invokes to merge our toolbar/menu placement into the editor instance config.
-export default new Promise(async (resolve) => {
+// PluginManager.add doesn't accept async setup, so we wait for TinyMCE and our
+// async setup work in an IIFE, then return the [pluginName, configureHandler]
+// tuple Moodle's tiny loader expects. The second element is what Moodle invokes
+// to merge our toolbar/menu placement into the editor instance config.
+//
+// We use an async IIFE rather than `new Promise(async (resolve) => ...)` because
+// ESLint's no-async-promise-executor rule (correctly) flags the latter: thrown
+// errors inside an async executor would become unhandled rejections.
+export default (async() => {
     const [tinyMCE, pluginMetadata, setupCommands] = await Promise.all([
         getTinyMCE(),
         getPluginMetadata(component, pluginName),
@@ -44,5 +48,5 @@ export default new Promise(async (resolve) => {
         return pluginMetadata;
     });
 
-    resolve([pluginName, Configuration]);
-});
+    return [pluginName, Configuration];
+})();

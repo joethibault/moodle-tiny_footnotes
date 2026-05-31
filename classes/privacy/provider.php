@@ -28,7 +28,6 @@ namespace tiny_footnotes\privacy;
  * The plugin only injects HTML into the editor; it stores nothing of its own.
  */
 class provider implements \core_privacy\local\metadata\null_provider {
-
     /**
      * Returns the language string key that explains why this plugin stores no data.
      *

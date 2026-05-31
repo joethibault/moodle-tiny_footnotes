@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname']        = 'Footnotes';
 $string['button_footnote']   = 'Insert footnote';
 $string['menuitem_footnote'] = 'Footnote';
+$string['pluginname']        = 'Footnotes';
 $string['privacy:metadata']  = 'The Footnotes plugin only inserts HTML into the editor. It stores no personal data of its own.';
