@@ -1,0 +1,56 @@
+/* Tiny Footnotes — minimal styling for both the editor body and rendered output. */
+
+.tiny_footnotes-ref {
+    color: #1177d1;
+    cursor: pointer;
+}
+
+.tiny_footnotes-ref a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.tiny_footnotes {
+    margin-top: 2em;
+    font-size: 0.9em;
+    color: #333;
+    /* Force LTR even when the surrounding editor body is RTL.
+       unicode-bidi: isolate creates a directional isolation context. */
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+.tiny_footnotes ol,
+.tiny_footnotes li {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+.tiny_footnotes hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 0 0.5em 0;
+}
+
+.tiny_footnotes ol {
+    padding-left: 1.5em;
+    margin: 0;
+}
+
+.tiny_footnotes li {
+    margin-bottom: 0.25em;
+}
+
+.tiny_footnotes-back {
+    text-decoration: none;
+    margin-right: 0.25em;
+    color: #1177d1;
+    user-select: none;
+}
+
+/* Placeholder text shown when a new note is still empty. */
+.tiny_footnotes-note:empty::before {
+    content: attr(data-placeholder);
+    color: #999;
+    font-style: italic;
+}

@@ -1,0 +1,22 @@
+# OS / editor metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local dev artefacts
+/node_modules/
+/vendor/
+/moodle/
+/moodle-plugin-ci/
+/.phpunit.result.cache
+/.php-cs-fixer.cache
+
+# Build / test output
+/build/
+/coverage/
+/behatrun*/
